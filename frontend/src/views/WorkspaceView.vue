@@ -92,6 +92,14 @@ watch(
   },
 )
 
+watch(message, (value, _previous, onCleanup) => {
+  if (!value) return
+  const timer = window.setTimeout(() => {
+    message.value = ''
+  }, 4000)
+  onCleanup(() => window.clearTimeout(timer))
+})
+
 function onKeydown(event: KeyboardEvent) {
   if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
     event.preventDefault()
