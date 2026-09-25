@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER:nacos:8848}
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: orders
+              uri: lb://order-service
+              predicates:
+                - Path=/api/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

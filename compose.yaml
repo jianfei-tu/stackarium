@@ -1,0 +1,22 @@
+name: stackarium-dev
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: stackarium
+      MYSQL_USER: stackarium
+      MYSQL_PASSWORD: ${STACKARIUM_DB_PASSWORD:?请在 .env 中设置 STACKARIUM_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${STACKARIUM_DB_ROOT_PASSWORD:?请在 .env 中设置 STACKARIUM_DB_ROOT_PASSWORD}
+    ports:
+      - "127.0.0.1:13316:3306"
+    volumes:
+      - stackarium_mysql:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u stackarium -p$$MYSQL_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 20s
+
+volumes:
+  stackarium_mysql:

@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+minimumReleaseAgeExclude:
+  - eslint-plugin-vue@10.11.1
+  - prettier@3.9.9

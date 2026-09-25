@@ -1,0 +1,22 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: inventory-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER:nacos:8848}
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:mysql}:3306/${MYSQL_DATABASE:app}?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: ${MYSQL_ROOT_PASSWORD}
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: 6379
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

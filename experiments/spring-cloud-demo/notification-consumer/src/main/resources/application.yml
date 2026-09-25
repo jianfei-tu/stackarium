@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: notification-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER:nacos:8848}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:rabbitmq}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

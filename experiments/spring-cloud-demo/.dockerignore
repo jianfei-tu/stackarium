@@ -1,0 +1,6 @@
+**/target/*
+!gateway-service/target/gateway-service-0.1.0-SNAPSHOT.jar
+!order-service/target/order-service-0.1.0-SNAPSHOT.jar
+!inventory-service/target/inventory-service-0.1.0-SNAPSHOT.jar
+!notification-consumer/target/notification-consumer-0.1.0-SNAPSHOT.jar
+.git

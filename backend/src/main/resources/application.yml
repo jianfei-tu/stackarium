@@ -1,0 +1,17 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+
+spring:
+  application:
+    name: stackarium
+  datasource:
+    url: ${STACKARIUM_DB_URL:jdbc:mysql://127.0.0.1:13316/stackarium?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC}
+    username: ${STACKARIUM_DB_USER:stackarium}
+    password: ${STACKARIUM_DB_PASSWORD}
+  flyway:
+    enabled: true
+
+stackarium:
+  runtime:
+    root: ${STACKARIUM_RUNTIME_ROOT:../runtime/generated}
